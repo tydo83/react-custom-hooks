@@ -35,7 +35,7 @@ function Signup() {
     // const [lastName, setLastName] = useState("")
     // const [password, setPassword] = useState("")
 
-    const [email, setEmail] = useEmailHooks()
+    const [email, setEmail, inputEmailError, errorEmailMessage] = useEmailHooks()
 
     const [username, setUsername, inputUserNameError, errorUserNameMessage] = useInputHooks()
     const [firstName, setFirstName, inputFirstNameError, errorFirstNameMessage] = useInputHooks()
@@ -63,17 +63,18 @@ function Signup() {
         >
             <Grid item xs={12}>
                 <form className={classes.root} autoComplete="on" onSubmit={handleOnSubmit}>
-                    {/* <FormControl error={null}>
+                    <FormControl error={inputEmailError}>
                         <InputLabel htmlFor="component-email">Email</InputLabel>
                         <Input
                             id="component-email"
                             name="email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e)}
                         />
                         <FormHelperText id="component-error-text"></FormHelperText>
-                    </FormControl>
-                    <br /> */}
+                            {inputEmailError && errorEmailMessage}
+                        </FormControl>
+                    <br />
                     <FormControl error={inputUserNameError}>
                         <InputLabel htmlFor="component-username">Username</InputLabel>
                         <Input
