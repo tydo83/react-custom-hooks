@@ -71,8 +71,9 @@ function Signup() {
                             value={email}
                             onChange={(e) => setEmail(e)}
                         />
-                        <FormHelperText id="component-error-text"></FormHelperText>
+                        <FormHelperText id="component-error-text">
                             {inputEmailError && errorEmailMessage}
+                        </FormHelperText>
                         </FormControl>
                     <br />
                     <FormControl error={inputUserNameError}>
