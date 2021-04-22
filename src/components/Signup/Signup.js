@@ -41,15 +41,15 @@ function Signup() {
     const [firstName, setFirstName, inputFirstNameError, errorFirstNameMessage] = useInputHooks()
     const [lastName, setLastName, inputLastNameError, errorLastNameMessage] = useInputHooks()
 
-    const [password, setPassword] = useInputHooks()
+    const [password, setPassword, passwordError, errorPasswordMessage] = useInputHooks()
 
     function handleOnSubmit(e) {
         e.preventDefault()
         console.log(username)
-        // console.log(email)
+        console.log(email)
         console.log(firstName)
         console.log(lastName)
-        // console.log(password)
+        console.log(password)
     }
 
     return (
@@ -115,17 +115,19 @@ function Signup() {
                         </FormHelperText>
                     </FormControl>
                     <br />
-                    {/*<FormControl error={null}>
+                    <FormControl error={passwordError}>
                         <InputLabel htmlFor="component-password">Password</InputLabel>
                         <Input
                             id="component-password"
                             name="password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e)}
                         />
-                        <FormHelperText id="component-error-text"></FormHelperText>
+                        <FormHelperText id="component-error-text">
+                            {passwordError && errorPasswordMessage}
+                        </FormHelperText>
                     </FormControl>
-                    <br /> */} 
+                    <br /> 
                     <Button variant="contained" color="primary" type="submit">Submit</Button>
                 </form>
             </Grid>
